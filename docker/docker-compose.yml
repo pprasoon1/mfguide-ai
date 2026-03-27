@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: mfuser
+      POSTGRES_PASSWORD: mfpass
+      POSTGRES_DB: mfguide
+    ports:
+      - "5432:5432"
+  
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+  
+  mlflow:
+    image: ghcr.io/mlflow/mlflow
+    ports:
+    - "5000:5000"
